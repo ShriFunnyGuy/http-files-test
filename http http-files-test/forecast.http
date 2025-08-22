@@ -1,0 +1,55 @@
+@baseUrl = http://localhost:5247
+@id = 1
+
+### Get all forecasts
+GET {{baseUrl}}/forecasts
+Accept: application/json
+
+###
+
+### Create a forecast
+POST {{baseUrl}}/forecasts
+Content-Type: application/json
+Accept: application/json
+
+{
+  "date": "2025-01-01",
+  "temperatureC": 12,
+  "summary": "Mild"
+}
+
+###
+
+### Get a forecast by id
+GET {{baseUrl}}/forecasts/{{id}}
+Accept: application/json
+
+###
+
+### Replace a forecast (PUT)
+PUT {{baseUrl}}/forecasts/{{id}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "date": "2025-01-02",
+  "temperatureC": 18,
+  "summary": "Warm"
+}
+
+###
+
+### Patch a forecast (partial update)
+PATCH {{baseUrl}}/forecasts/{{id}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "temperatureC": 23
+}
+
+###
+
+### Delete a forecast
+DELETE {{baseUrl}}/forecasts/{{id}}
+Accept: */*
